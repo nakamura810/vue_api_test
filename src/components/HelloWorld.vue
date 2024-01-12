@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <router-link to="/purchases">契約内容</router-link>
+
       <v-col class="mb-4">
       </v-col>
       <v-col
