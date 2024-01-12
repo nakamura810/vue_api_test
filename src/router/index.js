@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import barChartCard from '../views/Home2.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [

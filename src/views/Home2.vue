@@ -1,11 +1,11 @@
 <template>
-  <div>
+      <v-content>
     <v-row>
       <v-col>
         <barChartCard />
       </v-col>
     </v-row>
-  </div>
+        </v-content>
 </template>
 
 <script>
