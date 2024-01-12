@@ -1,16 +1,30 @@
 <template>
-  <div>
-    <h1>棒グラフと線グラフ</h1>
-    <chart></chart>
+  <div id="app">
+    <HelloWorld />
+    {{ info }}
+    <router-view></router-view>
   </div>
+
 </template>
 
 <script>
-import Chart from './Chart';
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
+  name: 'App',
   components: {
-    Chart,
-  },
-}
+    HelloWorld
+  }
+  }
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
