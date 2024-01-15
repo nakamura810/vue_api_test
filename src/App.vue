@@ -1,51 +1,52 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      white
-      clippedLeft
-      :height="60"
-    >
-        <v-app-bar-nav-icon
-        @click="drawer = !drawer"
-    >
-    </v-app-bar-nav-icon>
-    <v-spacer></v-spacer>
-    <p class="mb-0 mr-2">okada@libertylife.jp</p>
-     <v-btn 
-      color="blue"
-    >
-      サインアウト
-    </v-btn>
-</v-app-bar>
- <v-navigation-drawer
-      app
-      dark
-      clipped
-      :width="200"
-      :value="$vuetify.breakpoint.mdAndDown? drawer : true"
-      :expand-on-hover="$vuetify.breakpoint.lgAndUp && drawer"
-    >
-      <v-list
-        nav
-        dense
-      >
+    <v-navigation-drawer app v-model="drawer" clipped>
+      <v-container>
         <v-list-item>
-          <v-list-item-icon>
-        <v-icon>mdi-home</v-icon>
-        </v-list-item-icon>
-          <router-link to="/">トップページ</router-link>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+            Navigatinon Lists
+            </v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
-        
-        <v-list-item>
+
+        <v-divider></v-divider>
+
+            <v-list dense nav>
+      <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name">
         <v-list-item-icon>
-          <v-icon>mdi-account</v-icon>
+          <v-icon>{{ nav_list.icon }}</v-icon>
         </v-list-item-icon>
-          <router-link to="/purchases">契約内容</router-link>
+        <v-list-item-content>
+          <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
+        </v-list-item-content>
       </v-list-item>
-      </v-list>
+    </v-list>
+
+      </v-container>
     </v-navigation-drawer>
-    <router-view></router-view>
+
+    <v-app-bar color="#333" dark app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-spacer></v-spacer>
+    <v-toolbar-items>
+     <v-menu offset-y>
+  <template v-slot:activator="{on}">
+  <v-btn v-on="on" style="text-transform: none">okada@libertylife.jp<v-icon>mdi-menu-down</v-icon></v-btn>
+  </template>
+  <v-list>
+    <v-list-item v-for="support in supports" :key="support">
+      <v-list-item-content>
+        <v-list-item-title class="title">{{ support }}</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-list>
+</v-menu>
+     </v-toolbar-items>
+</v-app-bar>
+     <v-footer color="primary" dark app>
+      フッター部分
+    </v-footer>
   </v-app>
 </template>
 
@@ -54,7 +55,22 @@ export default {
 
   data () {
     return {
-      drawer:this.$vuetify.breakpoint.lgAndUp,
+      drawer:null,
+      nav_lists:[
+      {name: '予約スケジュール',icon: 'mdi-vuetify'},
+      {name: '入退館',icon: 'mdi-cogs'},
+      {name: 'メンバー',icon: 'mdi-palette'},
+      {name: 'アンケート',icon: 'mdi-view-dashboard'},
+      {name: 'ウィジェット',icon: 'mdi-function'},
+      {name: 'シフト',icon: 'mdi-vuetify'},
+      ],
+      supports:[
+      'メンバーズサイト',
+      'スタッフ管理サイト',
+      'お知らせ',
+      '障害情報',
+      'ログアウト'
+      ]
     }
   }
 }
