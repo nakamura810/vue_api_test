@@ -1,11 +1,11 @@
 <template>
   <v-container>
-  <p>page1</p>
+    <p>page2</p>
   </v-container>
 </template>
 
 <script>
   export default {
-    name: 'HelloWorld'
+    name: 'NewTimeline'
   }
 </script>
