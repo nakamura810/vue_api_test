@@ -1,11 +1,24 @@
 <template>
   <v-container>
-    <p>page2</p>
+        <v-row>
+      <v-col>
+        <barChartCard />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+  import barChartCard from "../components/chart/barChartCard.vue";
+
   export default {
-    name: 'NewTimeline'
+    name: 'NewTimeline',
+    components: {
+    barChartCard
+    },
+    methods: {
+    renderChart() {
+    },
   }
+}
 </script>

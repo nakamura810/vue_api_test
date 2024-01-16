@@ -1,23 +1,21 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model="drawer" clipped >
+    <v-navigation-drawer app v-model="drawer" clipped-left color="#333" >
       <v-container>
         <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-            Navigatinon Lists
-            </v-list-item-title>
-          </v-list-item-content>
+          
+            <img src="../assets/logo_test.png" height="10px" width="auto">
+        
         </v-list-item>
 
         <v-divider></v-divider>
 
             <v-list dense nav>
-      <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name" :to="nav_list.link">
+      <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name" :to="nav_list.link" color="white">
         <v-list-item-icon>
-          <v-icon>{{ nav_list.icon }}</v-icon>
+          <v-icon color="white">{{ nav_list.icon }}</v-icon>
         </v-list-item-icon>
-        <v-list-item-content>
+        <v-list-item-content style="color: white;">
           <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -26,8 +24,8 @@
       </v-container>
     </v-navigation-drawer>
 
-    <v-app-bar color="#333" dark app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon><v-icon>mdi mdi-bell</v-icon>
     <v-spacer></v-spacer>
     <v-toolbar-items>
      <v-menu offset-y>
@@ -75,3 +73,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-btn--is-elevated {
+  box-shadow: none !important;
+}
+
+</style>
